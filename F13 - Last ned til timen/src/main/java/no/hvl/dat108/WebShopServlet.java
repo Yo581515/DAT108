@@ -19,14 +19,14 @@ public class WebShopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/*
-	 * GET /webshop er forespørselen for å vise webshop-siden.
+	 * GET /webshop er forespoorselen for aa vise webshop-siden.
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		// Inn noe kode her i forbindelse med autentisering, autorisasjon
-		// og feilhåndtering?
+		// og feilhoondtering?
 		if (!LoggInnUtil.erInnlogget(request)) {
 			response.sendRedirect(LOGIN_URL);
 
@@ -55,13 +55,13 @@ public class WebShopServlet extends HttpServlet {
 			out.println("<table border=\"1\">");
 			out.println("<tr><th>Vare</th><th>Pris</th></tr>");
 
-			// Inn noe kode her for å vise innhold i handlevogn:
+			// Inn noe kode her for aa vise innhold i handlevogn:
 			// for (CartItem item : cart.getItems()) {
 			// out.println("<tr><td>" + item.getName() + "</td>"
 			// + "<td align=\"right\">" + item.getPrice() + "</td></tr>");
 			// }
-
 			out.println("</table><br/>");
+			
 			out.println("<form action=\"" + WEBSHOP_URL + "\" method=\"post\">");
 			out.println("<fieldset>");
 			out.println("<legend>Handle</legend>");
@@ -70,11 +70,14 @@ public class WebShopServlet extends HttpServlet {
 			out.println("<p><input type=\"submit\" value=\"Legg i handlekurv\" /></p>");
 			out.println("</fieldset>");
 			out.println("</form>");
+			
+			
 			out.println("<form action=\"" + LOGOUT_URL + "\" method=\"get\">");
 			out.println("<fieldset>");
 			out.println("<p><input type=\"submit\" value=\"Logg ut\" /></p>");
 			out.println("</fieldset>");
 			out.println("</form>");
+			
 			out.println("</body>");
 			out.println("</html>");
 

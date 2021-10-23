@@ -17,7 +17,7 @@ public class LoggInnServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
 	/* 
-	 * GET /login er forespørselen for å hente login-skjema.
+	 * GET /login er forespoorselen for aa hente login-skjema.
 	 */
     @Override
     protected void doGet(HttpServletRequest request,
@@ -27,7 +27,7 @@ public class LoggInnServlet extends HttpServlet {
     	String feilmelding = "";
     	String feilkode = request.getParameter("feilkode");
     	if (feilkode != null && feilkode.equals("invalidusername")) {
-    		feilmelding = "Ugyldig brukernavn. Prøv igjen.";
+    		feilmelding = "Ugyldig brukernavn. Proov igjen.";
     	} 
         
         response.setContentType("text/html; charset=ISO-8859-1");
