@@ -19,7 +19,7 @@ CREATE TABLE student
 );
 
 INSERT INTO klasse VALUES 
-	('DATA_h20', 'Dataingeniør'),
+	('DATA_h20', 'Dataingenioor'),
 	('INF_h20', 'Informasjonsteknologi');
 	
 INSERT INTO student VALUES

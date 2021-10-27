@@ -36,6 +36,7 @@ public class WebShopServlet extends HttpServlet {
 			HttpSession sesjon = request.getSession(true);
 			String brukernavn = (String) sesjon.getAttribute("username");
 			Cart handlevogn = (Cart) sesjon.getAttribute("cart");
+			int size = handlevogn.items.size();
 
 			response.setContentType("text/html; charset=ISO-8859-1");
 
@@ -48,7 +49,7 @@ public class WebShopServlet extends HttpServlet {
 			out.println("<title>Web Shop</title>");
 			out.println("</head>");
 			out.println("<body>");
-
+			out.println("<p>"+size+"</p>");
 			// Inn noe kode her for "Du er innlogget som <bruker>"?
 
 			out.println("Din handlekurv:<br />");

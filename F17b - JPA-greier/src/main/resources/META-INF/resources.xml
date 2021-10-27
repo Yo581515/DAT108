@@ -4,7 +4,7 @@
 	jdbcDriver = org.postgresql.Driver
 	jdbcUrl = jdbc:postgresql://localhost:5432/dat108h21
 	userName = postgres
-	password = postgres
+	password = Rr1!Tt1!
 <!--
 	jdbcUrl = jdbc:postgresql://158.37.32.244:5432/h123456 (der 123456 er ditt studnr)
 	userName = h123456 (ditt studnr)

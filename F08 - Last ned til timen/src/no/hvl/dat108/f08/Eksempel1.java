@@ -14,26 +14,28 @@ import java.util.function.Function;
  */
 public class Eksempel1 {
 	
-	public static List<String> tilListeAvString(List<Person> liste, ???) {
-		
-		List<String> resultat = new ArrayList<>();
-		for (Person p : liste) {
-			resultat.add(???);
-		}
-		return resultat;
-	}
-
-	public static void main(String[] args) {
-		
-		List<Person> people = Arrays.asList(
-				new Person("Charles", "Dickens", 60),
-				new Person("Lewis", "Carroll", 42),
-				new Person("Thomas", "Carlyle", 51),
-				new Person("Charlotte", "Bronte", 45),
-				new Person("Matthew", "Arnold", 39));
-		
-		List<String> fornavnene = tilListeAvString(people, ???);
-		System.out.println(fornavnene);		
-	}
+	// ---> Løsning fra timen Project
+	
+//	public static List<String> tilListeAvString(List<Person> liste, ???) {
+//		
+//		List<String> resultat = new ArrayList<>();
+//		for (Person p : liste) {
+//			resultat.add(???);
+//		}
+//		return resultat;
+//	}
+//
+//	public static void main(String[] args) {
+//		
+//		List<Person> people = Arrays.asList(
+//				new Person("Charles", "Dickens", 60),
+//				new Person("Lewis", "Carroll", 42),
+//				new Person("Thomas", "Carlyle", 51),
+//				new Person("Charlotte", "Bronte", 45),
+//				new Person("Matthew", "Arnold", 39));
+//		
+//		List<String> fornavnene = tilListeAvString(people, ???);
+//		System.out.println(fornavnene);		
+//	}
 
 }
