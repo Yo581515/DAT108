@@ -8,13 +8,18 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class StudentDAO {
-	
-	@PersistenceContext(name="studentDB")
+
+	@PersistenceContext(name = "studentDB")
 	private EntityManager em;
+
+	public void leggTilStudent(Student s) {
+		em.persist(s);
+	}
 
 	public List<Student> hentAlleStudenter() {
 //		TypedQuery<Student> query = em.createQuery("", Student.class);
 //		return query.getResultList();
 		return em.createQuery("select s from Student s", Student.class).getResultList();
 	}
+
 }
