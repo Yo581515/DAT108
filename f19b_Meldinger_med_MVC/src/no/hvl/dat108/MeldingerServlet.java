@@ -17,7 +17,7 @@ public class MeldingerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	// Trådsikker bruk: Gis kun verdi i init().
+	// Traadsikker bruk: Gis kun verdi i init().
 	private int visningsantall;
 
 	@EJB
@@ -34,12 +34,13 @@ public class MeldingerServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		// Databehandling her!
+		System.out.println(visningsantall);
 		List<Melding> meldinger = meldingEAO.henteNSisteMeldinger(visningsantall);
 
-		// Ta vare på i requesten til JSP-en
+		// Ta vare paa i requesten til JSP-en
 		request.setAttribute("meldinger", meldinger);
 		
-		// Gjør et forward-kall internt på serveren til JSP-side for visning
+		// Gjaar et forward-kall internt paa serveren til JSP-side for visning
 		request.getRequestDispatcher("WEB-INF/Meldinger.jsp")
 				.forward(request, response);
 	}

@@ -22,10 +22,10 @@ public class MeldingerServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	// Trådsikker bruk: Gis kun verdi i init()
+	// Traadsikker bruk: Gis kun verdi i init()
 	private int visningsantall;
 
-	// Trådsikker: Ny EntityManager og transaksjon blir injected ved bruk
+	// Traadsikker: Ny EntityManager og transaksjon blir injected ved bruk
 	@EJB
 	private MeldingDAOMemory meldingDAO;
 
@@ -39,10 +39,11 @@ public class MeldingerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Databehandling før skriving av respons!!!
+		// Databehandling faar skriving av respons!!!
+//		System.out.println(visningsantall);== 3
 		List<Melding> meldinger = meldingDAO.henteNSisteMeldinger(visningsantall);
 
-		// Da har vi det vi trenger, og kan begynne å lage HTML!!!
+		// Da har vi det vi trenger, og kan begynne aa lage HTML!!!
 		response.setContentType("text/html; charset=ISO-8859-1");
 		PrintWriter out = response.getWriter();
 
@@ -55,7 +56,7 @@ public class MeldingerServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<h2>Meldinger</h2>");
 
-		//escapeHtml4 sørger for ufarliggjøring av brukerinput
+		//escapeHtml4 saarger for ufarliggjooring av brukerinput
 		for (Melding m : meldinger) {
 			out.println("<p><b>(#" + m.getId() + ") " + m.getFormatertTidsstempel() 
 					+ " skrev "	+ escapeHtml4(m.getAvsender()) + ":</b></p>");

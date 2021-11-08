@@ -30,11 +30,12 @@ public class HashePassord {
 			
 			String base64Digest = Base64.getEncoder().encodeToString(digest);
 			System.out.println(base64Digest);
+			System.out.println(base64Digest.length());
 			System.out.println("64 tegn, "+ "(0 - 9), (26+26)= 64 alfabeter  + skrå strek og plus tegn");
 			
 			String hexDigest = DatatypeConverter.printHexBinary(digest);
 			System.out.println(hexDigest);
-			System.out.println("16 bits 4 bytes ( 254 / 4 ?) ,  "+hexDigest.length());
+			System.out.println("16 bits 4 tegn? ( 256 / 4  = 64) ,  "+"hexDigest.length() = "+hexDigest.length());
 			
 		}
 

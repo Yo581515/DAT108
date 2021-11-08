@@ -13,8 +13,8 @@ public class MeldingDAOMemory {
 
     // Initialiserer med 3 hardkodete meldinger
     public MeldingDAOMemory() {
-        lagreNyMelding(new Date().getTime(), "Per", "Første melding");
-        lagreNyMelding(new Date().getTime(), "Pål", "Andre melding");
+        lagreNyMelding(new Date().getTime(), "Per", "Foorste melding");
+        lagreNyMelding(new Date().getTime(), "Paal", "Andre melding");
         lagreNyMelding(new Date().getTime(), "Espen", "Tredje melding");
     }
 
