@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Web Shop</title>
+</head>
+<body>
+<p>Du er innlogget som Arne</p>
+Din handlekurv:<br />
+<table border="1">
+<tr><th>Vare</th><th>Pris</th></tr>
+<tr><td>Bukse</td><td align="right">699.0</td></tr>
+<tr><td>Genser</td><td align="right">399.0</td></tr>
+<tr><td>Genser</td><td align="right">399.0</td></tr>
+</table><br/>
+<form action="webshop" method="post">
+<fieldset>
+<legend>Handle</legend>
+<input type="checkbox" name="bukse" />Bukse<br/>
+<input type="checkbox" name="genser" />Genser<br/>
+<p><input type="submit" value="Legg i handlekurv" /></p>
+</fieldset>
+</form>
+<form action="logout" method="get">
+<fieldset>
+<p><input type="submit" value="Logg ut" /></p>
+</fieldset>
+</form>
+</body>
+</html>
