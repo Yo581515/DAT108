@@ -23,9 +23,11 @@ public class BrukerlisteServlet extends HttpServlet {
 		
 		List<Bruker> brukerliste = brukerDAO.hentAlleBrukere();
 		
-		response.setContentType("text/plain");
-		PrintWriter out = response.getWriter();
-		brukerliste.forEach(out::println);
+		request.setAttribute("brukerliste", brukerliste);
+
+		request.getRequestDispatcher("WEB-INF/brukere.jsp").forward(request, response);
+		
+		
 	}
 }
 

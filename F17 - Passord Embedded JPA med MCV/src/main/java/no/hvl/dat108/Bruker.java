@@ -23,6 +23,10 @@ public class Bruker {
 		return passord;
 	}
 	
+	public String getBrukernavn() {
+		return brukernavn;
+	}
+	
 	public Bruker() {}
 
 	@Override
