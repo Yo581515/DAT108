@@ -23,7 +23,7 @@
 				<input type="submit" value="Logg inn" />
 			</p>
 		</fieldset>
-		<a href="http://localhost:8080/F17_-_Passord_Embedded_JPA_med_MCV/Registrer">Registrer her</a>
+		<a href="http://localhost:8080/f17pwdWCV/registrer">Registrer her</a>
 	</form>
 </body>
 </html>

@@ -10,7 +10,7 @@
 	<p>
 		<font color="red">${loginMessage}</font>
 	</p>
-	<form action="Registrer" method="post">
+	<form action="registrer" method="post">
 		<fieldset>
 			<legend>Registrer</legend>
 			<p>

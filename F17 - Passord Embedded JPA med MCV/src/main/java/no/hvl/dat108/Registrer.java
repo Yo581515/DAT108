@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Registrer")
+@WebServlet("/registrer")
 public class Registrer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
@@ -50,7 +50,7 @@ public class Registrer extends HttpServlet {
 		}
 
 		
-		response.sendRedirect("Registrer"+ "?invalidUsername");
+		response.sendRedirect("registrer"+ "?invalidUsername");
 	}
 
 }
