@@ -63,7 +63,8 @@ public class Registrer extends HttpServlet {
 			Bruker nybruker = new Bruker(brukerNavn, passord);
 			brukerDAO.lagreNyBruker(nybruker);
 
-			response.sendRedirect("LoggInnServlet");
+			response.sendRedirect("brukerliste");
+			return;
 		}
 
 		
