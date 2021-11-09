@@ -19,36 +19,18 @@ public class Registrer extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String feilmelding = "";
-		String feilkode = request.getParameter("feilkode");
-		if (feilkode != null && feilkode.equals("invalidusername")) {
-			feilmelding = "Ugyldig brukernavn eller passord!";
+		String loginMessage = "";
+
+		if (request.getParameter("requiresLogin") != null) {
+			loginMessage = "Forespoorselen din krever paalogging. " + "(Du kan ha blitt logget ut automatisk)";
+
+		} else if (request.getParameter("invalidUsername") != null) {
+			loginMessage = "Manglende eller ugyldig brukernavn eller passord";
 		}
 
-		response.setContentType("text/html; charset=ISO-8859-1");
-		PrintWriter out = response.getWriter();
+		request.setAttribute("loginMessage", loginMessage);
 
-		out.println("<!DOCTYPE html>");
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<meta charset=\"ISO-8859-1\">");
-		out.println("<title>Registrer</title>");
-		out.println("</head>");
-		out.println("<body>");
-
-		// Inn noe kode her i forbindelse med evt. feilmeldinger?
-		out.println("<p style=\"color:red;\">" + feilmelding + "</p>");
-
-		out.println("<form action=\"Registrer\" method=\"post\">");
-		out.println("  <fieldset>");
-		out.println("    <legend>Registrer</legend>");
-		out.println("    <p>Brukernavn: <input type=\"text\" name=\"brukerNavn\" /></p>");
-		out.println("    <p>Passord: <input type=\"text\" name=\"PassOrd\" /></p>");
-		out.println("    <p><input type=\"submit\" value=\"Registrer\" /></p>");
-		out.println("  </fieldset>");
-		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
+		request.getRequestDispatcher("WEB-INF/registrer.jsp").forward(request, response);
 
 	}
 
@@ -56,7 +38,7 @@ public class Registrer extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String brukerNavn = request.getParameter("brukerNavn");
-		String passOrd = request.getParameter("PassOrd");
+		String passOrd = request.getParameter("passOrd");
 
 		if (Validator.erGyldigBrukerNavnOgPassOrd(brukerNavn, passOrd) && brukerDAO.hentBruker(brukerNavn) == null) {
 			Passord passord = new Passord(passOrd);
@@ -68,7 +50,7 @@ public class Registrer extends HttpServlet {
 		}
 
 		
-		response.sendRedirect("Registrer" + "?feilkode=invalidusername");
+		response.sendRedirect("Registrer"+ "?invalidUsername");
 	}
 
 }

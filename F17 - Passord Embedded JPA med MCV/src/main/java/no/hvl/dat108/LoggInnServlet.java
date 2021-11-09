@@ -21,36 +21,18 @@ public class LoggInnServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String feilmelding = "";
-		String feilkode = request.getParameter("feilkode");
-		if (feilkode != null && feilkode.equals("invalidusername")) {
-			feilmelding = "Ugyldig brukernavn eller passord!";
+		String loginMessage = "";
+
+		if (request.getParameter("requiresLogin") != null) {
+			loginMessage = "Forespoorselen din krever paalogging. " + "(Du kan ha blitt logget ut automatisk)";
+
+		} else if (request.getParameter("invalidUsername") != null) {
+			loginMessage = "Manglende eller ugyldig brukernavn";
 		}
 
-		response.setContentType("text/html; charset=ISO-8859-1");
-		PrintWriter out = response.getWriter();
+		request.setAttribute("loginMessage", loginMessage);
 
-		out.println("<!DOCTYPE html>");
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<meta charset=\"ISO-8859-1\">");
-		out.println("<title>Login</title>");
-		out.println("</head>");
-		out.println("<body>");
-
-		// Inn noe kode her i forbindelse med evt. feilmeldinger?
-		out.println("<p style=\"color:red;\">" + feilmelding + "</p>");
-
-		out.println("<form action=\"LoggInnServlet\" method=\"post\">");
-		out.println("  <fieldset>");
-		out.println("    <legend>Logg inn</legend>");
-		out.println("    <p>Brukernavn: <input type=\"text\" name=\"brukerNavn\" /></p>");
-		out.println("    <p>Passord: <input type=\"text\" name=\"PassOrd\" /></p>");
-		out.println("    <p><input type=\"submit\" value=\"Logg inn\" /></p>");
-		out.println("  </fieldset>");
-		out.println("</form>");
-		out.println("</body>");
-		out.println("</html>");
+		request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
 
 	}
 
@@ -58,7 +40,7 @@ public class LoggInnServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String brukerNavn = request.getParameter("brukerNavn");
-		String passOrd = request.getParameter("PassOrd");
+		String passOrd = request.getParameter("passOrd");
 
 		if (Validator.erGyldigBrukerNavnOgPassOrd(brukerNavn, passOrd) && brukerDAO.hentBruker(brukerNavn) != null) {
 			Bruker hentetBruker = brukerDAO.hentBruker(brukerNavn);
@@ -74,7 +56,7 @@ public class LoggInnServlet extends HttpServlet {
 			}
 		}
 
-		response.sendRedirect("LoggInnServlet" + "?feilkode=invalidusername");
+		response.sendRedirect("LoggInnServlet" + "?invalidUsername");
 	}
 
 }
