@@ -19,6 +19,10 @@ public class Bruker {
 		this.passord = passord;
 	}
 	
+	public Passord getPassord() {
+		return passord;
+	}
+	
 	public Bruker() {}
 
 	@Override

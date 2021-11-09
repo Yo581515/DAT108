@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
 </head>
+
 <body>
-	<p><a href="brukerliste">Brukerlisten</a></p>
+    <p><a href="brukerliste">Brukerlisten</a></p>
+
+    <form action="LoggInnServlet" method="post">
+        <legend>Logg Inn</legend>
+        <p>Brukernavn: <input type="text" name="brukerNavn"></p>
+        <p>Passord: <input type="text" name="PassOrd"></p>
+        <input type="submit" value="loggInn"></input>
+    </form>
 </body>
+
 </html>

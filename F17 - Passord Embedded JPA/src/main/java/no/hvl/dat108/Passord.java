@@ -6,14 +6,28 @@ import javax.persistence.Embeddable;
 public class Passord {
 
 	private String pwd_hash;
-    private String pwd_salt;
-    
+	private String pwd_salt;
+
+	public Passord(String passOrd) {
+		this.pwd_salt = PassordUtil.genererTilfeldigSalt();
+		this.pwd_hash = PassordUtil.hashMedSalt(passOrd, pwd_salt);
+	}
+
 	private Passord(String hash, String salt) {
 		pwd_hash = hash;
 		pwd_salt = salt;
 	}
-	
-	public Passord() {}
+
+	public String getPwd_salt() {
+		return pwd_salt;
+	}
+
+	public String getPwd_hash() {
+		return pwd_hash;
+	}
+
+	public Passord() {
+	}
 
 	@Override
 	public String toString() {
