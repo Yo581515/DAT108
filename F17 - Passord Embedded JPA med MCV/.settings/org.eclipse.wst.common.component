@@ -2,6 +2,7 @@
     <wb-module deploy-name="F17 - Passord Embedded JPA med MCV">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <property name="context-root" value="F17_-_Passord_Embedded_JPA_med_MCV"/>
         <property name="java-output-path" value="/F17 - Passord Embedded JPA med MCV/build/classes"/>
     </wb-module>
