@@ -1,6 +1,8 @@
 package no.hvl.dat108;
 
 import static no.hvl.dat108.CookieUtil.setAvsenderCookie;
+import static no.hvl.dat108.CookieUtil.getAvsenderCookie;
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,6 +41,8 @@ public class MeldingerServlet extends HttpServlet {
 
 		// Ta vare paa i requesten til JSP-en
 		request.setAttribute("meldinger", meldinger);
+		
+		request.setAttribute("avsender", escapeHtml4(getAvsenderCookie(request)));
 		
 		// Gjaar et forward-kall internt paa serveren til JSP-side for visning
 		request.getRequestDispatcher("WEB-INF/Meldinger.jsp")

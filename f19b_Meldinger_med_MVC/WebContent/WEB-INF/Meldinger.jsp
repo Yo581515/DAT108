@@ -11,8 +11,9 @@
 <body>
     <h2>Meldinger</h2>
     <%
-    for (int i = 0; i < 10; i++) {%>
-    <%=(i*i) %>
+    for (int i = 0; i < 10; i++) {
+    %>
+    <%=(i * i)%>
     <br>
     <%
     }
@@ -37,7 +38,7 @@
                 <textarea name="melding" rows="2" cols="45"></textarea>
             </p>
             <p>
-                Avsender:<br /> <input type="text" name="avsender" />
+                Avsender:<br /> <input type="text" name="avsender" value="${avsender }"/>
                 <input type="submit" value="Send melding" /> <input
                     type="reset" value="Nullstill" />
             </p>
