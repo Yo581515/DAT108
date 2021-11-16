@@ -10,7 +10,7 @@ public class ExchangeRateServiceTestStub implements ExchangeRateService {
 	public ExchangeRate getRate(String source, String target)
 			throws IOException, JsonSyntaxException {
 		ExchangeRate exchangeRate = new ExchangeRate();
-		exchangeRate.rate = 8;
+		exchangeRate.rate = 8.52;
 		return exchangeRate;
 	}
 

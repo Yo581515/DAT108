@@ -1,9 +1,9 @@
 package no.hvl.dat108;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class BmiServlet3TestV2{
     
@@ -12,7 +12,7 @@ public class BmiServlet3TestV2{
     
     private BmiServlet3 s3;
     
-    @Before
+    @BeforeEach
     public void setup() {
         s3 = new BmiServlet3(); //Ikke n�dv. � gj�re dette hver gang, men ...
     }

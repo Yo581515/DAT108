@@ -1,20 +1,20 @@
 package solution;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CurrencyConverterTest {
 	
 	private CurrencyConverter cc;
 	
-	@Before
+	@BeforeEach
 	public void setup() {
 		cc = new CurrencyConverter();
 	}
 
-	/** 1.	Test at veksling fra en valuta til seg selv gir samme beløp ut som inn */
+	/** 1.	Test at veksling fra en valuta til seg selv gir samme belï¿½p ut som inn */
 	@Test
 	public void sammeUtSomInn() {
 		double someAmount = 1234;
@@ -22,7 +22,7 @@ public class CurrencyConverterTest {
 		assertEquals(someAmount, cc.convertAmount(someAmount, someCurrCode, someCurrCode), Double.MIN_VALUE);
 	}
 
-	/** 2.	Test at et beløp på 0 gir 0 ut når man veksler fra en valuta til en annen */
+	/** 2.	Test at et belï¿½p pï¿½ 0 gir 0 ut nï¿½r man veksler fra en valuta til en annen */
 	@Test
 	public void nullGirNull() {
 		assertEquals(0, cc.convertAmount(0, "NOK", "USD"), Double.MIN_VALUE);
@@ -34,11 +34,11 @@ public class CurrencyConverterTest {
 		assertEquals(0, cc.convertAmount(1234, "NOK", "ABC"), Double.MIN_VALUE);
 	}
 	
-	/** 4. Test, gitt en USD/NOK-kurs på 8 kroner, at 100 USD blir 800 NOK. */
+	/** 4. Test, gitt en USD/NOK-kurs pï¿½ 8.52 kroner, at 100 USD blir 852 NOK. */
 	@Test
-	public void gittEnKursPaa8Kroner100DollarBlir800Kroner() {
+	public void gittEnKursPaa852Kroner100DollarBlir852Kroner() {
 		cc.setExchangeRateService(new ExchangeRateServiceTestStub());
-		assertEquals(800, cc.convertAmount(100, "USD", "NOK"), Double.MIN_VALUE);
+		assertEquals(852, cc.convertAmount(100, "USD", "NOK"), Double.MIN_VALUE);
 	}
 	
 	
