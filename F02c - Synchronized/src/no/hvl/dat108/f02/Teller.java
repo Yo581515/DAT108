@@ -4,13 +4,13 @@ public class Teller {
 
 	private int verdi = 0;
 
-	public synchronized void tellOpp() {
+	public  void tellOpp() {
 		//Kritisk seksjon
 		//Kan ha synchronized(this) på kodeblokk i stedet for på hele metoden
 		verdi++; // verdi = verdi + 1
 	}
 
-	public synchronized void tellNed() {
+	public  void tellNed() {
 		//Kritisk seksjon
 		//Kan ha synchronized(this) på kodeblokk i stedet for på hele metoden
 		verdi--; // verdi = verdi - 1

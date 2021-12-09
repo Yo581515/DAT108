@@ -2,8 +2,8 @@ package no.hvl.dat108;
 
 public class Validator {
 	
-	public static final String ANY_LETTER = "[A-Za-zÃ†Ã˜Ã…Ã¦Ã¸Ã¥]";
-	public static final String ANY_LETTER_OR_DIGIT = "[A-Za-zÃ†Ã˜Ã…Ã¦Ã¸Ã¥\\d]";
+	public static final String ANY_LETTER = "[A-Za-zÆøÅæøå]";
+	public static final String ANY_LETTER_OR_DIGIT = "[A-Za-zÆøÅæøå\\d]";
 	public static final String THREE_OR_MORE_TIMES = "{3,}";
 
     /**
@@ -16,10 +16,10 @@ public class Validator {
      */
     public static boolean isGyldigUsername(String username) {
     	
-    	if (username == null) {
-    		return false;
-    	}
-    	return username.matches("^" 
+//    	if (username == null) {
+//    		return false;
+//    	}
+    	return username != null && username.matches("^" 
     			+ ANY_LETTER 
     			+ ANY_LETTER_OR_DIGIT + THREE_OR_MORE_TIMES
     			+ "$");

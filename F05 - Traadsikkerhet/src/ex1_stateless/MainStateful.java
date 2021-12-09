@@ -1,5 +1,7 @@
 package ex1_stateless;
 
+
+
 public class MainStateful {
 
 	public static void main(String[] args) {

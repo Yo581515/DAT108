@@ -15,21 +15,26 @@ import javax.ws.rs.core.MediaType;
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@EJB
 	private StudentDAO studentDAO;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		List<Student> liste = studentDAO.hentAlleStudenter();
-		
+
 		response.setContentType(MediaType.TEXT_PLAIN);
 		PrintWriter out = response.getWriter();
-		
+
+		List<Student> navnAnne = studentDAO.henteStudentMedNavn("Arne");
+
 		liste.forEach(out::println);
+
+		for (int i = 0; i < 10; i++) {
+			navnAnne.forEach(out::println);
+		}
+
 	}
 }
-
-

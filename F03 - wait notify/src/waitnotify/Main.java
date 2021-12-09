@@ -6,15 +6,15 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Object lock = new Object();
+		Object objectLock = new Object();
 
 		Thread printlnTraad = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				synchronized (lock) {
+				synchronized (objectLock) {
 					while (melding == null) {
 						try {
-							lock.wait();
+							objectLock.wait();
 						} catch (InterruptedException e) {
 						}
 					}
@@ -26,9 +26,9 @@ public class Main {
 		Thread giVerdiTraad = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				synchronized(lock) {
+				synchronized (objectLock) {
 					melding = "Hallo";
-					lock.notifyAll();
+					objectLock.notifyAll();
 				}
 			}
 		});

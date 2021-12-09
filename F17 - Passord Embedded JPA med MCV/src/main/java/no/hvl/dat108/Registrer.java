@@ -21,10 +21,12 @@ public class Registrer extends HttpServlet {
 
 		String loginMessage = "";
 
-		if (request.getParameter("requiresLogin") != null) {
-			loginMessage = "Forespoorselen din krever paalogging. " + "(Du kan ha blitt logget ut automatisk)";
+//		if (request.getParameter("requiresLogin") != null) {
+//			loginMessage = "Forespoorselen din krever paalogging. " + "(Du kan ha blitt logget ut automatisk)";
+//
+//		} else 
 
-		} else if (request.getParameter("invalidUsername") != null) {
+		if (request.getParameter("invalidUsername") != null) {
 			loginMessage = "Manglende eller ugyldig brukernavn eller passord";
 		}
 
@@ -36,7 +38,7 @@ public class Registrer extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String brukerNavn = request.getParameter("brukerNavn");
 		String passOrd = request.getParameter("passOrd");
 
@@ -49,8 +51,7 @@ public class Registrer extends HttpServlet {
 			return;
 		}
 
-		
-		response.sendRedirect("registrer"+ "?invalidUsername");
+		response.sendRedirect("registrer" + "?invalidUsername");
 	}
 
 }

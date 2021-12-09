@@ -3,6 +3,7 @@ package no.hvl.dat108.f09;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Eksempel4 {
@@ -46,6 +47,8 @@ public class Eksempel4 {
 				"\nHvilket språk flest utviklere kan (finner ett av dem):");
 		//Litt vrien - Prøv selv ...
 		
+	    
+	    
 		System.out.println(
 				"\nHvilke(t) språk flest utviklere kan hvis det er flere:");
 		//Litt vrien - Prøv selv ...

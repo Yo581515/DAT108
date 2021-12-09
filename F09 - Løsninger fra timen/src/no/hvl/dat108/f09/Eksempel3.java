@@ -20,7 +20,7 @@ public class Eksempel3 {
 		//Alle forbokstavene i fornavnene i en streng - reduce "CLTCM"
 		String forbokstavene = people.stream()
 				.map(p -> "" + p.getFirstName().charAt(0))
-				.reduce("", (s, f) -> s + f);
+				.reduce("", (s, f) -> s +" "+ f).trim();
 		System.out.println(forbokstavene);
 		
 		//Antall personer over 50 år - count

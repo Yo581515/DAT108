@@ -43,7 +43,7 @@ public class Eksempel4og5 {
 		//Med streams:		
 		List<String> etternavnene = people.stream()
 				.filter(p -> p.getAge() > 50)
-				.map(p -> p.getLastName())
+				.map(Person::getLastName)
 				.collect(Collectors.toList());
 		
 		System.out.println(etternavnene);

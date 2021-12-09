@@ -4,7 +4,7 @@ public class PauseOgStopp {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		MinTraad t = new MinTraad("Hei-tråd");
+		MinTraad t = new MinTraad("Hei-traad");
 		t.start();
 		
 		Thread.sleep(5000);

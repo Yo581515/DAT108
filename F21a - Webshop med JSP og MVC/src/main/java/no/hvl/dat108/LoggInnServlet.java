@@ -14,49 +14,47 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/" + LOGIN_URL)
 public class LoggInnServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Override
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        String loginMessage = "";
-        
-        if (request.getParameter("requiresLogin") != null) {
-        	loginMessage = "Forespørselen din krever pålogging. " 
-        			+ "(Du kan ha blitt logget ut automatisk)";
-        	
-        } else if (request.getParameter("invalidUsername") != null) {
-        	loginMessage = "Manglende eller ugyldig brukernavn"; 
-        }
+		String loginMessage = "";
 
-        request.setAttribute("loginMessage", loginMessage);
-        
-        request.getRequestDispatcher("WEB-INF/login.jsp")
-        		.forward(request, response);
-    }
+		if (request.getParameter("requiresLogin") != null) {
+			loginMessage = "Forespoorselen din krever paalogging. " + "(Du kan ha blitt logget ut automatisk)";
 
-    @Override
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+		} else if (request.getParameter("invalidUsername") != null) {
+			loginMessage = "Manglende eller ugyldig brukernavn";
+		}
 
-        String username = request.getParameter("username");
+		request.setAttribute("loginMessage", loginMessage);
 
-        if (username == null || !Validator.isValidUsername(username)) {
-            response.sendRedirect(LOGIN_URL + "?invalidUsername");
-        } else {
+		request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+	}
 
-            HttpSession sesjon = request.getSession(false);
-            if (sesjon != null) {
-                sesjon.invalidate();
-            }
-            sesjon = request.getSession(true);
-            sesjon.setMaxInactiveInterval(10);
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-            sesjon.setAttribute("username", username);
-            sesjon.setAttribute("cart", new Cart());
+		String username = request.getParameter("username");
 
-            response.sendRedirect(WEBSHOP_URL);
-        }
-    }
+		if (username == null || !Validator.isValidUsername(username)) {
+			response.sendRedirect(LOGIN_URL + "?invalidUsername");
+		} else {
+
+			HttpSession sesjon = request.getSession(false);
+			if (sesjon != null) {
+				sesjon.invalidate();
+			}
+			sesjon = request.getSession(true);
+			sesjon.setMaxInactiveInterval(10);
+
+			sesjon.setAttribute("username", username);
+			sesjon.setAttribute("cart", new Cart());
+
+			response.sendRedirect(WEBSHOP_URL);
+		}
+	}
 }

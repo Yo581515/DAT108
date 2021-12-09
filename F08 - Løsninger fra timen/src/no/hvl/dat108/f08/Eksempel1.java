@@ -12,10 +12,9 @@ import java.util.function.Function;
  * 
  */
 public class Eksempel1 {
-	
-	public static List<String> tilListeAvString(List<Person> liste, 
-			Function<Person, String> omformer) {
-		
+
+	public static List<String> tilListeAvString(List<Person> liste, Function<Person, String> omformer) {
+
 		List<String> resultat = new ArrayList<>();
 		for (Person p : liste) {
 			resultat.add(omformer.apply(p));
@@ -24,15 +23,12 @@ public class Eksempel1 {
 	}
 
 	public static void main(String[] args) {
-		
-		List<Person> people = Arrays.asList(
-				new Person("Charles", "Dickens", 60),
-				new Person("Lewis", "Carroll", 42),
-				new Person("Thomas", "Carlyle", 51),
-				new Person("Charlotte", "Bronte", 45),
+
+		List<Person> people = Arrays.asList(new Person("Charles", "Dickens", 60), new Person("Lewis", "Carroll", 42),
+				new Person("Thomas", "Carlyle", 51), new Person("Charlotte", "Bronte", 45),
 				new Person("Matthew", "Arnold", 39));
-		
-		List<String> fornavnene = tilListeAvString(people, Person::getFirstName);
-		System.out.println(fornavnene);		
+
+		List<String> fornavnene = tilListeAvString(people, p->p.getFirstName());
+		System.out.println(fornavnene);
 	}
 }

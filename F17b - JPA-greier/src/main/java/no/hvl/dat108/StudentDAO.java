@@ -22,4 +22,10 @@ public class StudentDAO {
 		return em.createQuery("select s from Student s", Student.class).getResultList();
 	}
 
+	public List<Student> henteStudentMedNavn(String s) {
+//		TypedQuery<Student> query = em.createQuery("", Student.class);
+//		return query.getResultList();
+		return em.createQuery("select s from Student s where s.navn='" + s + "' ", Student.class).getResultList();
+	}
+
 }

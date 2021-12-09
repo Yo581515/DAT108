@@ -8,7 +8,6 @@ import java.util.Locale;
 public class Melding {
 
 	private Integer id;
-
 	private Long tidsstempel;
 	private String avsender;
 	private String tekst;

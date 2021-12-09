@@ -28,6 +28,7 @@ public class Eksempel6 {
 
 		String[] navn = {"Anne", "Per", "Knut"};
 		Stream<String> s5 = Arrays.stream(navn);
+		Stream<String> s99 = Stream.of(navn);
 		
 		//NB! IntStream er en stream av den primitive typen int
 		IntStream s6 = "Hallo".chars(); 
@@ -35,10 +36,11 @@ public class Eksempel6 {
 		IntStream s7 = IntStream.range(1,10);
 		IntStream s8 = IntStream.rangeClosed(1, 10);
 		
+		
 		Stream<Integer> s9 = Stream.iterate(1, x -> x + 1);
 		
-		try (Stream<String> s10 = Files.lines(Paths.get("data.txt"))) {
-		}
+//		try (Stream<String> s10 = Files.lines(Paths.get("data.txt"))) {
+//		}
 	}
 }
 

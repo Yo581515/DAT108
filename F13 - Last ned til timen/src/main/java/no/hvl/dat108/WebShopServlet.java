@@ -56,11 +56,11 @@ public class WebShopServlet extends HttpServlet {
 			out.println("<table border=\"1\">");
 			out.println("<tr><th>Vare</th><th>Pris</th></tr>");
 
-			// Inn noe kode her for aa vise innhold i handlevogn:
-			// for (CartItem item : cart.getItems()) {
-			// out.println("<tr><td>" + item.getName() + "</td>"
-			// + "<td align=\"right\">" + item.getPrice() + "</td></tr>");
-			// }
+//			 Inn noe kode her for aa vise innhold i handlevogn:
+			 for (CartItem item : handlevogn.getItems()) {
+			 out.println("<tr><td>" + item.getName() + "</td>"
+			 + "<td align=\"right\">" + item.getPrice() + "</td></tr>");
+			 }
 			out.println("</table><br/>");
 			
 			out.println("<form action=\"" + WEBSHOP_URL + "\" method=\"post\">");

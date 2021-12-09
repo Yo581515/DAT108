@@ -6,7 +6,7 @@ public class Eksempel1 {
 
 	public static void main(String[] args) {
 		/*
-		 * Opprett og start 2 tråder som kjører doSomeWildStuff() samtidig.
+		 * Opprett og start 2 traader som kjoorer doSomeWildStuff() samtidig.
 		 */
 		Runnable r = () -> doSomeWildStuff();
 		
